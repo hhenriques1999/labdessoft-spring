@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Listagem de Contatos</h1>
+        <table class="table table-responsive table-striped" border="1">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Email</td>
+                    <td>Opções</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cont: ${contato}">
+                    <td th:text="${cont.nome}"></td>
+                    <td th:text="${cont.email}"></td>
+                    <td>
+                        <a th:href="@{/contatos/edit/{id}(id=${cont.id})}">Editar</a>
+                        |
+                        <a th:href="@{/contatos/delete/{id}(id=${cont.id})}">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

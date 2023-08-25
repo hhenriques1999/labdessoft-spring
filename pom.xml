@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>MeuProjeto</artifactId>
+	<artifactId>Aula20230818</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MeuProjeto</name>
+	<name>Aula20230818</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -29,11 +29,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-devtools</artifactId>
+    		<optional>true</optional>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
-			<version>10.13.1.1</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -56,4 +61,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
