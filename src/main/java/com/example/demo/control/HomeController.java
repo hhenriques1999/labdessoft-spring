@@ -3,6 +3,7 @@ package com.example.demo.control;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.ui.Model;
@@ -55,13 +56,19 @@ public class HomeController {
 		return "redirect:/contatos";
 	}
 
-	@GetMapping("/contatos/delete")
-	public String removerContato(ModelMap mapa, @RequestParam(name = "id", required = true) Integer id) {
+	@GetMapping("/contatos/delete/{id}")
+	public String removerContato(ModelMap mapa, @PathVariable Integer id) {
 		if (id != null) {
+			try {
 			dao.deleteById(id);
-			return "contatosLista";
+				mapa.addAttribute("successMessage", "Contato deleted successfully.");
+			} catch (EmptyResultDataAccessException e) {
+				mapa.addAttribute("errorMessage", "Contato not found.");
+			}
 		} else {
+			mapa.addAttribute("errorMessage", "Invalid id.");
+		}
 			return "contatosLista";
 		}
-	}
+
 }
