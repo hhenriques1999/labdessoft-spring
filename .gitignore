@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 bin/
 mydb/
+derby.log
 
 ### STS ###
 .apt_generated
